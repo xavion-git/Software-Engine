@@ -26,7 +26,6 @@ I'm deeply interested in constructing `3D objects` through `mathematical` princi
 ![Projection Matrix Visualization](img/gl_projectionmatrix01.png)
 
 ## End Result
-<video controls src="Recording 2025-09-30 201945.mp4" title="Title"></video>
 
 This is the end-goal of this project 
 <video controls src="Recording 2025-09-30 202429.mp4" title="Title"></video>
