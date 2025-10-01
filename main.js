@@ -44,4 +44,12 @@ function init() {
     requestAnimationFrame(drawingLoop);
     // Makes a loop of the 8 points vertices 
     }
-    
+    // Function to re-render the drawing of the cube adding the rotation to it to the x and y axis 
+    function drawingLoop() {
+        device.clear();
+        mesh.Rotation.x += 0.01;
+        mesh.Rotation.y += 0.01;
+        device.render(mera, meshes);
+        device.present();
+        requestAnimationFrame(drawingLoop);
+    }

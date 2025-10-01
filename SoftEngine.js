@@ -1,4 +1,3 @@
-import { BABYLON } from "./babylon.math";
 
 // Making the Camera & Mesh Objects
 /**
@@ -27,5 +26,13 @@ var SoftEngine;
         return Mesh;
     })();
     SoftEngine.Mesh = Mesh;
+    var Device = (function () {
+        function Device(canvas) {
+            this.workingCanvas = canvas;
+            this.workingWidth = canvas.width;
+            this.workingHeight = canvas.height;
+            this.workingContext = this.workingCanvas.getContext("2d");
+        }
+    })
 })(SoftEngine || (SoftEngine = {}));
 
