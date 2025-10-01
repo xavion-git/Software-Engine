@@ -24,7 +24,6 @@ I'm deeply interested in constructing `3D objects` through `mathematical` princi
 - This is were us as software developers are assisted by mathematical equations.
 
 
-
 ## End Result
 
 This is the end-goal of this project 
