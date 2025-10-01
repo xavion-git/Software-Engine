@@ -25,6 +25,7 @@ I'm deeply interested in constructing `3D objects` through `mathematical` princi
 
 
 ## End Result
+<video controls src="Recording 2025-09-30 201945.mp4" title="Title"></video>
 
 This is the end-goal of this project 
 <video controls src="Recording 2025-09-30 202429.mp4" title="Title"></video>
