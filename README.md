@@ -19,10 +19,11 @@ I'm deeply interested in constructing `3D objects` through `mathematical` princi
 
 - In mathematics, a matrix is a rectangular array of numbers, symbols, or expressions organized into rows and columns.
 
-![alt text](IMG_3072.jpeg)
+![Matrice research](img/IMG_3072.jpeg)
 
 - This is were us as software developers are assisted by mathematical equations.
 
+![Projection Matrix Visualization](img/gl_projectionmatrix01.png)
 
 ## End Result
 <video controls src="Recording 2025-09-30 201945.mp4" title="Title"></video>
