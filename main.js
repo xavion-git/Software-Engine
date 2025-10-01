@@ -14,5 +14,8 @@ window.requestAnimationFrame = (function () {
 var canvas;
 var device;
 var mesh;
-var meshes = [];
+var meshes = []; // array
 var mera;
+
+// Adding a event to the DOM content while initializing it as false
+document.addEventListener("DOMContentLoaded", init, false);
