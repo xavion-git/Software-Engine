@@ -15,7 +15,7 @@ I'm deeply interested in constructing `3D objects` through `mathematical` princi
 
 - Firstly we need to understand the underline principles behide `3D objects`
 
-**The Matrix**
+**The Matrices**
 
 - In mathematics, a matrix is a rectangular array of numbers, symbols, or expressions organized into rows and columns.
 
