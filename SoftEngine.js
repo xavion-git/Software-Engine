@@ -34,16 +34,48 @@ var SoftEngine;
             this.workingContext = this.workingCanvas.getContext("2d");
         }
         Device.prototype.clear = function () {
-         this.workingContext.clearRect(0, 0, this.workingWidth, this.workingHeight);
-         this.backbuffer = this.workingContext.getImageData(0, 0 , this.workingWidth, this.workingHeight);
-        }
+            this.workingContext.clearRect(0, 0, this.workingWidth, this.workingHeight);
+            this.backbuffer = this.workingContext.getImageData(0, 0 , this.workingWidth, this.workingHeight);
+        };
         Device.prototype.present = function () {
-         this. workingContext.putImageData(this.backbuffer, 0, 0);
-        } 
+            this. workingContext.putImageData(this.backbuffer, 0, 0);
+        };
         Device.prototype.putPixel = function (x, y, color) {
-         this.backbufferdata = this.backbuffer.data;
-         
-        }
-    })
+            this.backbufferdata = this.backbuffer.data;
+            var index = ((x >> 0) + (y >> 0) * this.workingWidth) * 4;
+            this.backbufferdata[index] = color.r * 255;
+            this.backbufferdata[index + 1] = color.g * 255;
+            this.backbufferdata[index + 2] = color.b * 255;
+            this.backbufferdata[index + 3] = color.a * 255;
+        };
+         Device.prototype.project = function (coord, transMat) {
+            var point = BABYLON.Vector3.TransformCoordinates(coord, transMat);
+            var x = point.x * this.workingWidth + this.workingWidth / 2.0 >> 0;
+            var y = -point.y * this.workingHeight + this.workingHeight / 2.0 >> 0;
+            return (new BABYLON.Vector2(x, y));
+        };
+        Device.prototype.drawpoint = function (point) {
+            if(point.x >= 0 && point.y >= 0 && point.x < this.workingWidth && point.y < this.workingHeight){
+                this.putPixel(point.x, point.y, new BABYLON.Color4(1, 1, 0, 1));
+            };
+        };
+        Device.prototype.render = function(camera, meshes) {
+            var viewMatrix = BABYLON.Matrix.LookkAtLH(camera.Position, camera.Target, BABYLON.Vector3.Up());
+            var projectionMatrix = BABYLON.Matrix.PerspectiveFovLH(.078, this.workingWidth / this.workingHeight, 0.01, 1.0);
+            for(var index = 0; index < meshes.length; index++) {
+                var cMesh = meshes[index];
+                // Using the position of the Matrice to graph out how the camera rotates 
+                var worldMatrix = BABYLON.RotationYawPichRoll(cMesh.Rotation.y, cMesh.Rotation.x, cMesh.Rotation.z).multiply(BABYLON.Matrix.Translation(cMesh.Position.y, cMesh.Postion.x, cMesh.Postion.z));
+                var transformMatrix = worldMatrix.multiply(viewMatrix).multiply(projectionMatrix);
+                // iterates through the index vertices of 0 by the lenght of the vertices while adding to the index
+                for(var indexVertices = 0 ; indexVertices < cMesh.Vertices.length; indexVertices++) {
+                    var projectedPoint = this.project(cMesh.Vertices[indexVertices], transformMatrix);
+                    this.drawpoint(projectedPoint);
+                }
+            }
+        };
+        return Device;
+    })();
+    SoftEngine.Device = Device;
 })(SoftEngine || (SoftEngine = {}));
 
