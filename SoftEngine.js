@@ -33,6 +33,17 @@ var SoftEngine;
             this.workingHeight = canvas.height;
             this.workingContext = this.workingCanvas.getContext("2d");
         }
+        Device.prototype.clear = function () {
+         this.workingContext.clearRect(0, 0, this.workingWidth, this.workingHeight);
+         this.backbuffer = this.workingContext.getImageData(0, 0 , this.workingWidth, this.workingHeight);
+        }
+        Device.prototype.present = function () {
+         this. workingContext.putImageData(this.backbuffer, 0, 0);
+        } 
+        Device.prototype.putPixel = function (x, y, color) {
+         this.backbufferdata = this.backbuffer.data;
+         
+        }
     })
 })(SoftEngine || (SoftEngine = {}));
 
