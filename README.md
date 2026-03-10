@@ -1,21 +1,8 @@
 # Planetary Observatory – Software 3D Renderer
 
-## Demo
+## Final Result
 
 https://github.com/user-attachments/assets/8a2ae0bc-87cb-4313-8057-f7c3a6326f27
-
-### Final Result
-
-<video src="videos/final-demo.mp4" controls width="800"></video>
-
-### Camera Controls and Interaction
-
-<video src="videos/camera-controls.mp4" controls width="800"></video>
-
-### Rendering Pipeline Visualization
-
-<video src="videos/rendering-pipeline.mp4" controls width="800"></video>
-
 
 ---
 
@@ -59,6 +46,8 @@ This transformation chain can be written as:
 
 V_screen = Projection * View * World * V_model
 
+## Points on the vector 
+![Projection Matrix Visualization](img/gl_projectionmatrix01.png)
 
 Where:
 
@@ -67,6 +56,7 @@ Where:
 - **Projection Matrix** converts 3D coordinates to perspective space
 
 ---
+
 
 ## Perspective Projection
 
@@ -93,7 +83,10 @@ Projection matrix form:
 Where:
 
 - `zn` = near clipping plane  
-- `zf` = far clipping plane  
+- `zf` = far clipping plane
+
+https://github.com/user-attachments/assets/c1ccd2a4-c2ee-4b97-94f3-f55332c7370c
+
 
 ---
 
@@ -117,6 +110,14 @@ brightness = ambient + max(0, dot(N, L))
 The brightness value is interpolated across the triangle surface during rasterization.
 
 ---
+
+## Lines on the vectors 
+
+
+
+https://github.com/user-attachments/assets/0804386c-9e2b-4752-b45a-1234a809e7f0
+
+
 
 # Features
 
